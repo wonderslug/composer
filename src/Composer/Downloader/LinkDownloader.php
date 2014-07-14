@@ -69,7 +69,7 @@ class LinkDownloader implements DownloaderInterface {
         {
             rmdir($path);
         }
-        symlink(dirname($package->getDistUrl()),$path);
+        symlink(dirname(realpath($package->getDistUrl())),$path);
         if ($this->io->isVerbose())
         {
             $template = 'Linked project <info>%s</info> (<comment>%s</comment>) to path <info>%s</info>';
